@@ -1,0 +1,32 @@
+{
+  "mcpServers": {
+    "aws-misconfig-scanner": {
+      "command": "C:\\Users\\HP\\OneDrive\\Desktop\\mcp\\.venv\\Scripts\\python.exe",
+      "args": [
+        "C:\\Users\\HP\\OneDrive\\Desktop\\mcp\\claude_launcher.py"
+      ],
+      "cwd": "C:\\Users\\HP\\OneDrive\\Desktop\\mcp",
+      "env": {
+        "AWS_PROFILE": "aws-mcp-readonly",
+        "AWS_PROFILES": "aws-mcp-readonly",
+        "AWS_REGION": "us-east-1",
+        "AWS_MCP_USE_MOCKS": "false",
+        "AWS_MCP_ENABLE_AWS_CONFIG": "true"
+      }
+    },
+    "nessus-onprem-scanner": {
+      "command": "C:\\Users\\HP\\OneDrive\\Desktop\\mcp\\.venv\\Scripts\\python.exe",
+      "args": [
+        "C:\\Users\\HP\\OneDrive\\Desktop\\mcp\\claude_nessus_launcher.py"
+      ],
+      "cwd": "C:\\Users\\HP\\OneDrive\\Desktop\\mcp",
+      "env": {
+        "AWS_MCP_USE_MOCKS": "true",
+        "AWS_MCP_ENABLE_ONPREM_NESSUS": "true",
+        "AWS_MCP_ONPREM_DATASET_PATH": "C:\\Users\\HP\\OneDrive\\Desktop\\mcp\\scanners\\data\\onprem_nessus_dataset.json",
+        "AWS_MCP_OUTPUT_DIR": "C:\\Users\\HP\\OneDrive\\Desktop\\mcp\\reports",
+        "AWS_MCP_HISTORY_DIR": "C:\\Users\\HP\\OneDrive\\Desktop\\mcp\\reports\\history"
+      }
+    }
+  }
+}

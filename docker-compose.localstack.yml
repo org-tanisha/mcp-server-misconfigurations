@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  localstack:
+    image: localstack/localstack:3.5
+    container_name: aws-mcp-localstack
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=s3,iam,ec2,rds,cloudtrail,config,sts
+      - DEBUG=0
+      - AWS_DEFAULT_REGION=us-east-1
+    volumes:
+      - "./.localstack:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
+  mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - localstack
+    environment:
+      - AWS_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      - AWS_MCP_USE_MOCKS=false
+      - AWS_MCP_ENABLE_AWS_CONFIG=true
+      - AWS_ENDPOINT_URL=http://localstack:4566
+      - AWS_MCP_OUTPUT_DIR=/app/reports
+    volumes:
+      - "./reports:/app/reports"
+

@@ -1,0 +1,200 @@
+{
+  "assets": [
+    {
+      "asset_id": "onprem-web-01",
+      "hostname": "onprem-web-01.corp.local",
+      "os": "Windows Server 2016",
+      "network_segment": "dmz",
+      "checks": {
+        "smb_signing_required": false,
+        "rdp_nla_required": false,
+        "host_firewall_enabled": false,
+        "local_admin_password_rotation": false,
+        "unsupported_os": true,
+        "patch_days_overdue": 94
+      }
+    },
+    {
+      "asset_id": "onprem-db-01",
+      "hostname": "onprem-db-01.corp.local",
+      "os": "Windows Server 2019",
+      "network_segment": "datacenter",
+      "checks": {
+        "smb_signing_required": true,
+        "rdp_nla_required": true,
+        "host_firewall_enabled": true,
+        "local_admin_password_rotation": true,
+        "unsupported_os": false,
+        "patch_days_overdue": 12
+      }
+    },
+    {
+      "asset_id": "onprem-jump-01",
+      "hostname": "onprem-jump-01.corp.local",
+      "os": "Windows Server 2012 R2",
+      "network_segment": "admin",
+      "checks": {
+        "smb_signing_required": false,
+        "rdp_nla_required": false,
+        "host_firewall_enabled": true,
+        "local_admin_password_rotation": false,
+        "unsupported_os": true,
+        "patch_days_overdue": 47
+      }
+    },
+    {
+      "asset_id": "onprem-ad-01",
+      "hostname": "onprem-ad-01.corp.local",
+      "os": "Windows Server 2012 R2",
+      "network_segment": "identity",
+      "checks": {
+        "smb_signing_required": false,
+        "rdp_nla_required": true,
+        "host_firewall_enabled": false,
+        "local_admin_password_rotation": false,
+        "unsupported_os": true,
+        "patch_days_overdue": 121
+      }
+    },
+    {
+      "asset_id": "onprem-files-01",
+      "hostname": "onprem-files-01.corp.local",
+      "os": "Windows Server 2019",
+      "network_segment": "datacenter",
+      "checks": {
+        "smb_signing_required": false,
+        "rdp_nla_required": true,
+        "host_firewall_enabled": true,
+        "local_admin_password_rotation": true,
+        "unsupported_os": false,
+        "patch_days_overdue": 38
+      }
+    },
+    {
+      "asset_id": "onprem-linux-bastion-01",
+      "hostname": "onprem-linux-bastion-01.corp.local",
+      "os": "Ubuntu 20.04",
+      "network_segment": "admin",
+      "checks": {
+        "smb_signing_required": true,
+        "rdp_nla_required": true,
+        "host_firewall_enabled": false,
+        "local_admin_password_rotation": false,
+        "unsupported_os": false,
+        "patch_days_overdue": 73
+      }
+    },
+    {
+      "asset_id": "onprem-vdi-01",
+      "hostname": "onprem-vdi-01.corp.local",
+      "os": "Windows 10 Enterprise",
+      "network_segment": "user-access",
+      "checks": {
+        "smb_signing_required": true,
+        "rdp_nla_required": false,
+        "host_firewall_enabled": false,
+        "local_admin_password_rotation": true,
+        "unsupported_os": false,
+        "patch_days_overdue": 34
+      }
+    },
+    {
+      "asset_id": "onprem-backup-01",
+      "hostname": "onprem-backup-01.corp.local",
+      "os": "Windows Server 2008 R2",
+      "network_segment": "backup",
+      "checks": {
+        "smb_signing_required": true,
+        "rdp_nla_required": true,
+        "host_firewall_enabled": true,
+        "local_admin_password_rotation": true,
+        "unsupported_os": true,
+        "patch_days_overdue": 15
+      }
+    },
+    {
+      "asset_id": "onprem-printer-mgmt-01",
+      "hostname": "onprem-printer-mgmt-01.corp.local",
+      "os": "Windows Server 2016",
+      "network_segment": "operations",
+      "checks": {
+        "smb_signing_required": false,
+        "rdp_nla_required": false,
+        "host_firewall_enabled": false,
+        "local_admin_password_rotation": false,
+        "unsupported_os": false,
+        "patch_days_overdue": 140
+      }
+    },
+    {
+      "asset_id": "onprem-storage-02",
+      "hostname": "onprem-storage-02.corp.local",
+      "os": "Windows Server 2022",
+      "network_segment": "datacenter",
+      "checks": {
+        "smb_signing_required": true,
+        "rdp_nla_required": true,
+        "host_firewall_enabled": true,
+        "local_admin_password_rotation": true,
+        "unsupported_os": false,
+        "patch_days_overdue": 5
+      }
+    },
+    {
+      "asset_id": "onprem-app-03",
+      "hostname": "onprem-app-03.corp.local",
+      "os": "Red Hat Enterprise Linux 8",
+      "network_segment": "dmz",
+      "checks": {
+        "smb_signing_required": true,
+        "rdp_nla_required": true,
+        "host_firewall_enabled": false,
+        "local_admin_password_rotation": false,
+        "unsupported_os": false,
+        "patch_days_overdue": 210
+      }
+    },
+    {
+      "asset_id": "onprem-dev-node-01",
+      "hostname": "onprem-dev-node-01.corp.local",
+      "os": "Windows 11 Pro",
+      "network_segment": "dev",
+      "checks": {
+        "smb_signing_required": false,
+        "rdp_nla_required": false,
+        "host_firewall_enabled": false,
+        "local_admin_password_rotation": false,
+        "unsupported_os": false,
+        "patch_days_overdue": 45
+      }
+    },
+    {
+      "asset_id": "onprem-hr-01",
+      "hostname": "onprem-hr-01.corp.local",
+      "os": "Windows Server 2016",
+      "network_segment": "restricted",
+      "checks": {
+        "smb_signing_required": true,
+        "rdp_nla_required": true,
+        "host_firewall_enabled": true,
+        "local_admin_password_rotation": true,
+        "unsupported_os": false,
+        "patch_days_overdue": 0
+      }
+    },
+    {
+      "asset_id": "onprem-monitor-01",
+      "hostname": "onprem-monitor-01.corp.local",
+      "os": "CentOS 7",
+      "network_segment": "ops",
+      "checks": {
+        "smb_signing_required": false,
+        "rdp_nla_required": false,
+        "host_firewall_enabled": true,
+        "local_admin_password_rotation": false,
+        "unsupported_os": true,
+        "patch_days_overdue": 18
+      }
+    }
+  ]
+}

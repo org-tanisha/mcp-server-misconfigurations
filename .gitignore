@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+*.pyd
+.env
+reports/*.json
+reports/*.md
+!reports/sample_report.json
+
