@@ -1,5 +1,7 @@
 # AWS Misconfiguration Scanner (MCP)
 
+AWS & Nessus Security Scanner MCP Server > 🛡️ An MCP-powered security auditor for Claude Desktop. Detects AWS misconfigurations (S3, IAM, EC2, RDS) and analyzes on-prem Nessus vulnerability data with CIS/NIST-aligned reporting.
+
 This project is a Python AWS misconfiguration scanner exposed through MCP tools for Claude/Desktop clients.
 
 ## Setup
