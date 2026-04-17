@@ -6,6 +6,7 @@ import json
 
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON_EXE = ROOT / ".venv" / "Scripts" / "python.exe"
+# We'll use the robust Nessus launcher for better reliability and logging
 NESSUS_LAUNCHER = ROOT / "claude_nessus_launcher.py"
 
 

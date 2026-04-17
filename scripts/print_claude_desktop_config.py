@@ -6,32 +6,23 @@ import json
 
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON_EXE = ROOT / ".venv" / "Scripts" / "python.exe"
-AWS_LAUNCHER = ROOT / "claude_launcher.py"
-NESSUS_LAUNCHER = ROOT / "claude_nessus_launcher.py"
+# We'll use the robust unified launcher for better reliability and logging
+UNIFIED_LAUNCHER = ROOT / "robust_unified_launcher.py"
 
 
 def main() -> None:
     config = {
-        "isUsingBuiltInNodeForMcp": True,
         "mcpServers": {
-            "aws-misconfig-scanner": {
+            "security-scanner-unified": {
                 "command": str(PYTHON_EXE),
-                "args": [str(AWS_LAUNCHER)],
+                "args": [str(UNIFIED_LAUNCHER)],
                 "cwd": str(ROOT),
                 "env": {
-                    "AWS_PROFILE": "aws-mcp-readonly",
-                    "AWS_PROFILES": "aws-mcp-readonly",
+                    "AWS_PROFILE": "default",
+                    "AWS_PROFILES": "default",
                     "AWS_REGION": "us-east-1",
-                    "AWS_MCP_USE_MOCKS": "false",
-                    "AWS_MCP_ENABLE_AWS_CONFIG": "true",
-                },
-            },
-            "nessus-onprem-scanner": {
-                "command": str(PYTHON_EXE),
-                "args": [str(NESSUS_LAUNCHER)],
-                "cwd": str(ROOT),
-                "env": {
                     "AWS_MCP_USE_MOCKS": "true",
+                    "AWS_MCP_ENABLE_AWS_CONFIG": "true",
                     "AWS_MCP_ENABLE_ONPREM_NESSUS": "true",
                     "AWS_MCP_ONPREM_DATASET_PATH": str(ROOT / "scanners" / "data" / "onprem_nessus_dataset.json"),
                     "AWS_MCP_OUTPUT_DIR": str(ROOT / "reports"),

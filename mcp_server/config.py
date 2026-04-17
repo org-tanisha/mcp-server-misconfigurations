@@ -20,6 +20,11 @@ class Settings(BaseModel):
     output_dir: Path = Field(default=Path("reports"))
     history_dir: Path = Field(default=Path("reports/history"))
     project_name: str = Field(default="aws-mcp-misconfig-scanner")
+    jira_url: str | None = Field(default=None)
+    jira_user: str | None = Field(default=None)
+    jira_token: str | None = Field(default=None)
+    jira_project_key: str = Field(default="SEC")
+    jira_issue_type: str = Field(default="Bug")
     max_retries: int = Field(default=5)
 
     @classmethod
@@ -48,31 +53,10 @@ class Settings(BaseModel):
             aws_endpoint_url=os.getenv("AWS_ENDPOINT_URL"),
             output_dir=output_dir,
             history_dir=Path(os.getenv("AWS_MCP_HISTORY_DIR", str(output_dir / "history"))),
+            jira_url=os.getenv("JIRA_URL"),
+            jira_user=os.getenv("JIRA_USER"),
+            jira_token=os.getenv("JIRA_TOKEN"),
+            jira_project_key=os.getenv("JIRA_PROJECT_KEY", "SEC"),
+            jira_issue_type=os.getenv("JIRA_ISSUE_TYPE", "Bug"),
             max_retries=int(os.getenv("AWS_MCP_MAX_RETRIES", "5")),
         )
-{
-   "mcpServers": {
-     "aws-misconfig-scanner": {
-       "command": "C:\\Users\\HP\\OneDrive\\Desktop\\mcp\\.venv\\Scripts\\python.exe",
-       "args": ["C:\\Users\\HP\\OneDrive\\Desktop\\mcp\\claude_launcher.py"],
-       "cwd": "C:\\Users\\HP\\OneDrive\\Desktop\\mcp",
-       "env": {
-         "AWS_PROFILE": "aws-mcp-readonly",
-         "AWS_PROFILES": "aws-mcp-readonly",
-         "AWS_REGION": "us-east-1",
-         "AWS_MCP_USE_MOCKS": "false",
-         "AWS_MCP_ENABLE_AWS_CONFIG": "true"
-       }
-     },
-     "nessus-onprem-scanner": {
-       "command": "C:\\Users\\HP\\OneDrive\\Desktop\\mcp\\.venv\\Scripts\\python.exe",
-       "args": ["C:\\Users\\HP\\OneDrive\\Desktop\\mcp\\claude_nessus_launcher.py"],
-       "cwd": "C:\\Users\\HP\\OneDrive\\Desktop\\mcp",
-       "env": {
-         "AWS_MCP_USE_MOCKS": "true",
-         "AWS_MCP_ENABLE_ONPREM_NESSUS": "true",
-         "AWS_MCP_ONPREM_DATASET_PATH": "scanners\\data\\onprem_nessus_dataset.json"
-       }
-     }
-   }
- }

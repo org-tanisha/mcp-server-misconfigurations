@@ -7,9 +7,11 @@ from scanners.config_scanner import AWSConfigScanner
 from scanners.cloudtrail_scanner import CloudTrailScanner
 from scanners.ec2_scanner import EC2Scanner
 from scanners.iam_scanner import IAMScanner
+from scanners.nessus_scanner import NessusOnPremScanner
 from scanners.rds_scanner import RDSScanner
 from scanners.s3_scanner import S3Scanner
 from scanners.security_group_scanner import SecurityGroupScanner
+from utils.jira import build_jira_payload
 from utils.models import Finding
 from utils.reporting import (
     build_trend_report,
@@ -49,6 +51,8 @@ class ToolRegistry:
         ]
         if active_settings.enable_aws_config:
             scanners.append(AWSConfigScanner(active_settings))
+        if active_settings.enable_onprem_nessus:
+            scanners.append(NessusOnPremScanner(active_settings))
         for scanner in scanners:
             findings.extend(scanner.scan().findings)
         return self._annotate_findings(findings, active_settings.aws_profile)
@@ -76,6 +80,9 @@ class ToolRegistry:
 
     def scan_cloudtrail_status(self) -> list[dict]:
         return [item.model_dump() for item in CloudTrailScanner(self.settings).scan().findings]
+
+    def scan_onprem_nessus_vulnerabilities(self) -> list[dict]:
+        return [item.model_dump() for item in NessusOnPremScanner(self.settings).scan().findings]
 
     def scan_all_resources(self) -> list[dict]:
         return [item.model_dump() for item in self._scan_all_findings()]
@@ -139,3 +146,22 @@ class ToolRegistry:
     def generate_trend_report(self) -> dict:
         records = load_history_records(Path(self.settings.history_dir))
         return build_trend_report(records)
+
+    def generate_jira_ticket_payload(self, finding_data: dict) -> dict:
+        finding = Finding.model_validate(finding_data)
+        return build_jira_payload(
+            finding,
+            self.settings.jira_project_key,
+            self.settings.jira_issue_type,
+        )
+
+    def scan_and_generate_jira_payloads(self) -> list[dict]:
+        findings = self._scan_all_findings()
+        return [
+            build_jira_payload(
+                finding,
+                self.settings.jira_project_key,
+                self.settings.jira_issue_type,
+            )
+            for finding in findings
+        ]

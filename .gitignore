@@ -9,3 +9,5 @@ reports/*.json
 reports/*.md
 !reports/sample_report.json
 
+
+*.log
