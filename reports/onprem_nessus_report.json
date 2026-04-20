@@ -1,0 +1,1040 @@
+{
+  "generated_at": "2026-04-20T05:01:50.919731+00:00",
+  "finding_count": 30,
+  "summary": {
+    "total_findings": 30,
+    "critical_findings": 9,
+    "high_findings": 21,
+    "medium_findings": 0,
+    "low_findings": 0,
+    "top_risks": [
+      "Critical: Unsupported Operating System Detected (On-Prem Infrastructure (Nessus))",
+      "Critical: Unsupported Operating System Detected (On-Prem Infrastructure (Nessus))",
+      "Critical: Unsupported Operating System Detected (On-Prem Infrastructure (Nessus))"
+    ],
+    "compliance_gaps": [
+      "12.2",
+      "4.8",
+      "5.4",
+      "6.3",
+      "7.3",
+      "7.7"
+    ],
+    "service_breakdown": {
+      "On-Prem Infrastructure (Nessus)": 30
+    },
+    "severity_breakdown": {
+      "Critical": 9,
+      "High": 21
+    },
+    "summary": "The scan identified AWS configuration issues that increase exposure to data loss, unauthorized access, and audit findings. Priority should be given to internet-exposed resources, weak IAM controls, and logging gaps."
+  },
+  "breakdowns": {
+    "severity": {
+      "Critical": 9,
+      "High": 21
+    },
+    "service": {
+      "On-Prem Infrastructure (Nessus)": 30
+    },
+    "cis_controls": {
+      "12.2": 5,
+      "4.8": 5,
+      "5.4": 5,
+      "6.3": 4,
+      "7.3": 7,
+      "7.7": 4
+    }
+  },
+  "top_findings": [
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-web-01",
+      "issue": "Unsupported Operating System Detected",
+      "severity": "Critical",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Unsupported operating systems no longer receive security patches and carry elevated exploit risk.",
+      "recommendation": "Migrate unsupported operating systems to supported versions.",
+      "remediation_steps": [
+        "Identify business owners for unsupported assets.",
+        "Plan and execute upgrade or replacement to supported OS baselines.",
+        "Isolate legacy systems until migration is completed."
+      ],
+      "evidence": "",
+      "cis_control_id": "7.7",
+      "nist_csf": [
+        "ID.AM-2",
+        "PR.IP-12"
+      ],
+      "owasp_category": "A06:2021-Vulnerable and Outdated Components",
+      "risk_score": 96,
+      "metadata": {
+        "hostname": "onprem-web-01.corp.local",
+        "network_segment": "dmz",
+        "os": "Windows Server 2016",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-jump-01",
+      "issue": "Unsupported Operating System Detected",
+      "severity": "Critical",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Unsupported operating systems no longer receive security patches and carry elevated exploit risk.",
+      "recommendation": "Migrate unsupported operating systems to supported versions.",
+      "remediation_steps": [
+        "Identify business owners for unsupported assets.",
+        "Plan and execute upgrade or replacement to supported OS baselines.",
+        "Isolate legacy systems until migration is completed."
+      ],
+      "evidence": "",
+      "cis_control_id": "7.7",
+      "nist_csf": [
+        "ID.AM-2",
+        "PR.IP-12"
+      ],
+      "owasp_category": "A06:2021-Vulnerable and Outdated Components",
+      "risk_score": 96,
+      "metadata": {
+        "hostname": "onprem-jump-01.corp.local",
+        "network_segment": "admin",
+        "os": "Windows Server 2012 R2",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-ad-01",
+      "issue": "Unsupported Operating System Detected",
+      "severity": "Critical",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Unsupported operating systems no longer receive security patches and carry elevated exploit risk.",
+      "recommendation": "Migrate unsupported operating systems to supported versions.",
+      "remediation_steps": [
+        "Identify business owners for unsupported assets.",
+        "Plan and execute upgrade or replacement to supported OS baselines.",
+        "Isolate legacy systems until migration is completed."
+      ],
+      "evidence": "",
+      "cis_control_id": "7.7",
+      "nist_csf": [
+        "ID.AM-2",
+        "PR.IP-12"
+      ],
+      "owasp_category": "A06:2021-Vulnerable and Outdated Components",
+      "risk_score": 96,
+      "metadata": {
+        "hostname": "onprem-ad-01.corp.local",
+        "network_segment": "identity",
+        "os": "Windows Server 2012 R2",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-backup-01",
+      "issue": "Unsupported Operating System Detected",
+      "severity": "Critical",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Unsupported operating systems no longer receive security patches and carry elevated exploit risk.",
+      "recommendation": "Migrate unsupported operating systems to supported versions.",
+      "remediation_steps": [
+        "Identify business owners for unsupported assets.",
+        "Plan and execute upgrade or replacement to supported OS baselines.",
+        "Isolate legacy systems until migration is completed."
+      ],
+      "evidence": "",
+      "cis_control_id": "7.7",
+      "nist_csf": [
+        "ID.AM-2",
+        "PR.IP-12"
+      ],
+      "owasp_category": "A06:2021-Vulnerable and Outdated Components",
+      "risk_score": 96,
+      "metadata": {
+        "hostname": "onprem-backup-01.corp.local",
+        "network_segment": "backup",
+        "os": "Windows Server 2008 R2",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-web-01",
+      "issue": "Host Firewall Disabled",
+      "severity": "Critical",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Disabling host firewall protections exposes services broadly and weakens segmentation controls.",
+      "recommendation": "Enable host-based firewalls and enforce baseline inbound rules.",
+      "remediation_steps": [
+        "Enable Windows Defender Firewall (or equivalent) on affected hosts.",
+        "Apply baseline allow-list policy for required management and app ports.",
+        "Block unsolicited inbound traffic by default."
+      ],
+      "evidence": "",
+      "cis_control_id": "12.2",
+      "nist_csf": [
+        "PR.PT-4",
+        "DE.CM-1"
+      ],
+      "owasp_category": "A05:2021-Security Misconfiguration",
+      "risk_score": 92,
+      "metadata": {
+        "hostname": "onprem-web-01.corp.local",
+        "network_segment": "dmz",
+        "os": "Windows Server 2016",
+        "data_source": "nessus-connector"
+      }
+    }
+  ],
+  "findings": [
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-web-01",
+      "issue": "SMB Signing Not Enforced",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "SMB relay attacks become more feasible when SMB signing is disabled.",
+      "recommendation": "Enforce SMB signing on all on-prem Windows servers.",
+      "remediation_steps": [
+        "Apply Group Policy to require SMB signing for clients and servers.",
+        "Validate policy application on critical hosts.",
+        "Rescan to confirm SMB relay exposure is removed."
+      ],
+      "evidence": "",
+      "cis_control_id": "4.8",
+      "nist_csf": [
+        "PR.AC-5",
+        "PR.PT-3"
+      ],
+      "owasp_category": "A05:2021-Security Misconfiguration",
+      "risk_score": 84,
+      "metadata": {
+        "hostname": "onprem-web-01.corp.local",
+        "network_segment": "dmz",
+        "os": "Windows Server 2016",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-web-01",
+      "issue": "RDP Network Level Authentication Disabled",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "RDP endpoints without NLA are more susceptible to credential theft and brute-force attacks.",
+      "recommendation": "Require Network Level Authentication (NLA) for all RDP endpoints.",
+      "remediation_steps": [
+        "Enable NLA in Windows remote access settings or via Group Policy.",
+        "Restrict RDP access paths to approved management networks.",
+        "Retest remote logon behavior after hardening."
+      ],
+      "evidence": "",
+      "cis_control_id": "6.3",
+      "nist_csf": [
+        "PR.AC-7",
+        "PR.PT-4"
+      ],
+      "owasp_category": "A07:2021-Identification and Authentication Failures",
+      "risk_score": 86,
+      "metadata": {
+        "hostname": "onprem-web-01.corp.local",
+        "network_segment": "dmz",
+        "os": "Windows Server 2016",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-web-01",
+      "issue": "Host Firewall Disabled",
+      "severity": "Critical",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Disabling host firewall protections exposes services broadly and weakens segmentation controls.",
+      "recommendation": "Enable host-based firewalls and enforce baseline inbound rules.",
+      "remediation_steps": [
+        "Enable Windows Defender Firewall (or equivalent) on affected hosts.",
+        "Apply baseline allow-list policy for required management and app ports.",
+        "Block unsolicited inbound traffic by default."
+      ],
+      "evidence": "",
+      "cis_control_id": "12.2",
+      "nist_csf": [
+        "PR.PT-4",
+        "DE.CM-1"
+      ],
+      "owasp_category": "A05:2021-Security Misconfiguration",
+      "risk_score": 92,
+      "metadata": {
+        "hostname": "onprem-web-01.corp.local",
+        "network_segment": "dmz",
+        "os": "Windows Server 2016",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-web-01",
+      "issue": "Local Admin Password Rotation Missing",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Static local admin credentials can be reused laterally after compromise.",
+      "recommendation": "Implement local administrator password rotation (for example via Microsoft LAPS).",
+      "remediation_steps": [
+        "Deploy LAPS (or equivalent) for local administrator credential rotation.",
+        "Require unique host-level local admin passwords.",
+        "Audit privileged local account usage and stale accounts."
+      ],
+      "evidence": "",
+      "cis_control_id": "5.4",
+      "nist_csf": [
+        "PR.AC-1",
+        "PR.AC-6"
+      ],
+      "owasp_category": "A07:2021-Identification and Authentication Failures",
+      "risk_score": 83,
+      "metadata": {
+        "hostname": "onprem-web-01.corp.local",
+        "network_segment": "dmz",
+        "os": "Windows Server 2016",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-web-01",
+      "issue": "Unsupported Operating System Detected",
+      "severity": "Critical",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Unsupported operating systems no longer receive security patches and carry elevated exploit risk.",
+      "recommendation": "Migrate unsupported operating systems to supported versions.",
+      "remediation_steps": [
+        "Identify business owners for unsupported assets.",
+        "Plan and execute upgrade or replacement to supported OS baselines.",
+        "Isolate legacy systems until migration is completed."
+      ],
+      "evidence": "",
+      "cis_control_id": "7.7",
+      "nist_csf": [
+        "ID.AM-2",
+        "PR.IP-12"
+      ],
+      "owasp_category": "A06:2021-Vulnerable and Outdated Components",
+      "risk_score": 96,
+      "metadata": {
+        "hostname": "onprem-web-01.corp.local",
+        "network_segment": "dmz",
+        "os": "Windows Server 2016",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-web-01",
+      "issue": "Critical Patches Overdue",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Delayed patching increases exposure windows for known exploited vulnerabilities.",
+      "recommendation": "Apply overdue security patches within the defined remediation SLA.",
+      "remediation_steps": [
+        "Prioritize internet-exposed and privileged systems first.",
+        "Patch and reboot assets through approved maintenance windows.",
+        "Rescan to verify missing critical patches are remediated."
+      ],
+      "evidence": "",
+      "cis_control_id": "7.3",
+      "nist_csf": [
+        "PR.IP-12",
+        "DE.CM-8"
+      ],
+      "owasp_category": "A06:2021-Vulnerable and Outdated Components",
+      "risk_score": 88,
+      "metadata": {
+        "hostname": "onprem-web-01.corp.local",
+        "network_segment": "dmz",
+        "os": "Windows Server 2016",
+        "data_source": "nessus-connector",
+        "patch_days_overdue": 94
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-jump-01",
+      "issue": "SMB Signing Not Enforced",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "SMB relay attacks become more feasible when SMB signing is disabled.",
+      "recommendation": "Enforce SMB signing on all on-prem Windows servers.",
+      "remediation_steps": [
+        "Apply Group Policy to require SMB signing for clients and servers.",
+        "Validate policy application on critical hosts.",
+        "Rescan to confirm SMB relay exposure is removed."
+      ],
+      "evidence": "",
+      "cis_control_id": "4.8",
+      "nist_csf": [
+        "PR.AC-5",
+        "PR.PT-3"
+      ],
+      "owasp_category": "A05:2021-Security Misconfiguration",
+      "risk_score": 84,
+      "metadata": {
+        "hostname": "onprem-jump-01.corp.local",
+        "network_segment": "admin",
+        "os": "Windows Server 2012 R2",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-jump-01",
+      "issue": "RDP Network Level Authentication Disabled",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "RDP endpoints without NLA are more susceptible to credential theft and brute-force attacks.",
+      "recommendation": "Require Network Level Authentication (NLA) for all RDP endpoints.",
+      "remediation_steps": [
+        "Enable NLA in Windows remote access settings or via Group Policy.",
+        "Restrict RDP access paths to approved management networks.",
+        "Retest remote logon behavior after hardening."
+      ],
+      "evidence": "",
+      "cis_control_id": "6.3",
+      "nist_csf": [
+        "PR.AC-7",
+        "PR.PT-4"
+      ],
+      "owasp_category": "A07:2021-Identification and Authentication Failures",
+      "risk_score": 86,
+      "metadata": {
+        "hostname": "onprem-jump-01.corp.local",
+        "network_segment": "admin",
+        "os": "Windows Server 2012 R2",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-jump-01",
+      "issue": "Local Admin Password Rotation Missing",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Static local admin credentials can be reused laterally after compromise.",
+      "recommendation": "Implement local administrator password rotation (for example via Microsoft LAPS).",
+      "remediation_steps": [
+        "Deploy LAPS (or equivalent) for local administrator credential rotation.",
+        "Require unique host-level local admin passwords.",
+        "Audit privileged local account usage and stale accounts."
+      ],
+      "evidence": "",
+      "cis_control_id": "5.4",
+      "nist_csf": [
+        "PR.AC-1",
+        "PR.AC-6"
+      ],
+      "owasp_category": "A07:2021-Identification and Authentication Failures",
+      "risk_score": 83,
+      "metadata": {
+        "hostname": "onprem-jump-01.corp.local",
+        "network_segment": "admin",
+        "os": "Windows Server 2012 R2",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-jump-01",
+      "issue": "Unsupported Operating System Detected",
+      "severity": "Critical",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Unsupported operating systems no longer receive security patches and carry elevated exploit risk.",
+      "recommendation": "Migrate unsupported operating systems to supported versions.",
+      "remediation_steps": [
+        "Identify business owners for unsupported assets.",
+        "Plan and execute upgrade or replacement to supported OS baselines.",
+        "Isolate legacy systems until migration is completed."
+      ],
+      "evidence": "",
+      "cis_control_id": "7.7",
+      "nist_csf": [
+        "ID.AM-2",
+        "PR.IP-12"
+      ],
+      "owasp_category": "A06:2021-Vulnerable and Outdated Components",
+      "risk_score": 96,
+      "metadata": {
+        "hostname": "onprem-jump-01.corp.local",
+        "network_segment": "admin",
+        "os": "Windows Server 2012 R2",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-jump-01",
+      "issue": "Critical Patches Overdue",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Delayed patching increases exposure windows for known exploited vulnerabilities.",
+      "recommendation": "Apply overdue security patches within the defined remediation SLA.",
+      "remediation_steps": [
+        "Prioritize internet-exposed and privileged systems first.",
+        "Patch and reboot assets through approved maintenance windows.",
+        "Rescan to verify missing critical patches are remediated."
+      ],
+      "evidence": "",
+      "cis_control_id": "7.3",
+      "nist_csf": [
+        "PR.IP-12",
+        "DE.CM-8"
+      ],
+      "owasp_category": "A06:2021-Vulnerable and Outdated Components",
+      "risk_score": 88,
+      "metadata": {
+        "hostname": "onprem-jump-01.corp.local",
+        "network_segment": "admin",
+        "os": "Windows Server 2012 R2",
+        "data_source": "nessus-connector",
+        "patch_days_overdue": 47
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-ad-01",
+      "issue": "SMB Signing Not Enforced",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "SMB relay attacks become more feasible when SMB signing is disabled.",
+      "recommendation": "Enforce SMB signing on all on-prem Windows servers.",
+      "remediation_steps": [
+        "Apply Group Policy to require SMB signing for clients and servers.",
+        "Validate policy application on critical hosts.",
+        "Rescan to confirm SMB relay exposure is removed."
+      ],
+      "evidence": "",
+      "cis_control_id": "4.8",
+      "nist_csf": [
+        "PR.AC-5",
+        "PR.PT-3"
+      ],
+      "owasp_category": "A05:2021-Security Misconfiguration",
+      "risk_score": 84,
+      "metadata": {
+        "hostname": "onprem-ad-01.corp.local",
+        "network_segment": "identity",
+        "os": "Windows Server 2012 R2",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-ad-01",
+      "issue": "Host Firewall Disabled",
+      "severity": "Critical",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Disabling host firewall protections exposes services broadly and weakens segmentation controls.",
+      "recommendation": "Enable host-based firewalls and enforce baseline inbound rules.",
+      "remediation_steps": [
+        "Enable Windows Defender Firewall (or equivalent) on affected hosts.",
+        "Apply baseline allow-list policy for required management and app ports.",
+        "Block unsolicited inbound traffic by default."
+      ],
+      "evidence": "",
+      "cis_control_id": "12.2",
+      "nist_csf": [
+        "PR.PT-4",
+        "DE.CM-1"
+      ],
+      "owasp_category": "A05:2021-Security Misconfiguration",
+      "risk_score": 92,
+      "metadata": {
+        "hostname": "onprem-ad-01.corp.local",
+        "network_segment": "identity",
+        "os": "Windows Server 2012 R2",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-ad-01",
+      "issue": "Local Admin Password Rotation Missing",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Static local admin credentials can be reused laterally after compromise.",
+      "recommendation": "Implement local administrator password rotation (for example via Microsoft LAPS).",
+      "remediation_steps": [
+        "Deploy LAPS (or equivalent) for local administrator credential rotation.",
+        "Require unique host-level local admin passwords.",
+        "Audit privileged local account usage and stale accounts."
+      ],
+      "evidence": "",
+      "cis_control_id": "5.4",
+      "nist_csf": [
+        "PR.AC-1",
+        "PR.AC-6"
+      ],
+      "owasp_category": "A07:2021-Identification and Authentication Failures",
+      "risk_score": 83,
+      "metadata": {
+        "hostname": "onprem-ad-01.corp.local",
+        "network_segment": "identity",
+        "os": "Windows Server 2012 R2",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-ad-01",
+      "issue": "Unsupported Operating System Detected",
+      "severity": "Critical",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Unsupported operating systems no longer receive security patches and carry elevated exploit risk.",
+      "recommendation": "Migrate unsupported operating systems to supported versions.",
+      "remediation_steps": [
+        "Identify business owners for unsupported assets.",
+        "Plan and execute upgrade or replacement to supported OS baselines.",
+        "Isolate legacy systems until migration is completed."
+      ],
+      "evidence": "",
+      "cis_control_id": "7.7",
+      "nist_csf": [
+        "ID.AM-2",
+        "PR.IP-12"
+      ],
+      "owasp_category": "A06:2021-Vulnerable and Outdated Components",
+      "risk_score": 96,
+      "metadata": {
+        "hostname": "onprem-ad-01.corp.local",
+        "network_segment": "identity",
+        "os": "Windows Server 2012 R2",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-ad-01",
+      "issue": "Critical Patches Overdue",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Delayed patching increases exposure windows for known exploited vulnerabilities.",
+      "recommendation": "Apply overdue security patches within the defined remediation SLA.",
+      "remediation_steps": [
+        "Prioritize internet-exposed and privileged systems first.",
+        "Patch and reboot assets through approved maintenance windows.",
+        "Rescan to verify missing critical patches are remediated."
+      ],
+      "evidence": "",
+      "cis_control_id": "7.3",
+      "nist_csf": [
+        "PR.IP-12",
+        "DE.CM-8"
+      ],
+      "owasp_category": "A06:2021-Vulnerable and Outdated Components",
+      "risk_score": 88,
+      "metadata": {
+        "hostname": "onprem-ad-01.corp.local",
+        "network_segment": "identity",
+        "os": "Windows Server 2012 R2",
+        "data_source": "nessus-connector",
+        "patch_days_overdue": 121
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-files-01",
+      "issue": "SMB Signing Not Enforced",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "SMB relay attacks become more feasible when SMB signing is disabled.",
+      "recommendation": "Enforce SMB signing on all on-prem Windows servers.",
+      "remediation_steps": [
+        "Apply Group Policy to require SMB signing for clients and servers.",
+        "Validate policy application on critical hosts.",
+        "Rescan to confirm SMB relay exposure is removed."
+      ],
+      "evidence": "",
+      "cis_control_id": "4.8",
+      "nist_csf": [
+        "PR.AC-5",
+        "PR.PT-3"
+      ],
+      "owasp_category": "A05:2021-Security Misconfiguration",
+      "risk_score": 84,
+      "metadata": {
+        "hostname": "onprem-files-01.corp.local",
+        "network_segment": "datacenter",
+        "os": "Windows Server 2019",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-files-01",
+      "issue": "Critical Patches Overdue",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Delayed patching increases exposure windows for known exploited vulnerabilities.",
+      "recommendation": "Apply overdue security patches within the defined remediation SLA.",
+      "remediation_steps": [
+        "Prioritize internet-exposed and privileged systems first.",
+        "Patch and reboot assets through approved maintenance windows.",
+        "Rescan to verify missing critical patches are remediated."
+      ],
+      "evidence": "",
+      "cis_control_id": "7.3",
+      "nist_csf": [
+        "PR.IP-12",
+        "DE.CM-8"
+      ],
+      "owasp_category": "A06:2021-Vulnerable and Outdated Components",
+      "risk_score": 88,
+      "metadata": {
+        "hostname": "onprem-files-01.corp.local",
+        "network_segment": "datacenter",
+        "os": "Windows Server 2019",
+        "data_source": "nessus-connector",
+        "patch_days_overdue": 38
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-linux-bastion-01",
+      "issue": "Host Firewall Disabled",
+      "severity": "Critical",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Disabling host firewall protections exposes services broadly and weakens segmentation controls.",
+      "recommendation": "Enable host-based firewalls and enforce baseline inbound rules.",
+      "remediation_steps": [
+        "Enable Windows Defender Firewall (or equivalent) on affected hosts.",
+        "Apply baseline allow-list policy for required management and app ports.",
+        "Block unsolicited inbound traffic by default."
+      ],
+      "evidence": "",
+      "cis_control_id": "12.2",
+      "nist_csf": [
+        "PR.PT-4",
+        "DE.CM-1"
+      ],
+      "owasp_category": "A05:2021-Security Misconfiguration",
+      "risk_score": 92,
+      "metadata": {
+        "hostname": "onprem-linux-bastion-01.corp.local",
+        "network_segment": "admin",
+        "os": "Ubuntu 20.04",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-linux-bastion-01",
+      "issue": "Local Admin Password Rotation Missing",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Static local admin credentials can be reused laterally after compromise.",
+      "recommendation": "Implement local administrator password rotation (for example via Microsoft LAPS).",
+      "remediation_steps": [
+        "Deploy LAPS (or equivalent) for local administrator credential rotation.",
+        "Require unique host-level local admin passwords.",
+        "Audit privileged local account usage and stale accounts."
+      ],
+      "evidence": "",
+      "cis_control_id": "5.4",
+      "nist_csf": [
+        "PR.AC-1",
+        "PR.AC-6"
+      ],
+      "owasp_category": "A07:2021-Identification and Authentication Failures",
+      "risk_score": 83,
+      "metadata": {
+        "hostname": "onprem-linux-bastion-01.corp.local",
+        "network_segment": "admin",
+        "os": "Ubuntu 20.04",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-linux-bastion-01",
+      "issue": "Critical Patches Overdue",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Delayed patching increases exposure windows for known exploited vulnerabilities.",
+      "recommendation": "Apply overdue security patches within the defined remediation SLA.",
+      "remediation_steps": [
+        "Prioritize internet-exposed and privileged systems first.",
+        "Patch and reboot assets through approved maintenance windows.",
+        "Rescan to verify missing critical patches are remediated."
+      ],
+      "evidence": "",
+      "cis_control_id": "7.3",
+      "nist_csf": [
+        "PR.IP-12",
+        "DE.CM-8"
+      ],
+      "owasp_category": "A06:2021-Vulnerable and Outdated Components",
+      "risk_score": 88,
+      "metadata": {
+        "hostname": "onprem-linux-bastion-01.corp.local",
+        "network_segment": "admin",
+        "os": "Ubuntu 20.04",
+        "data_source": "nessus-connector",
+        "patch_days_overdue": 73
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-vdi-01",
+      "issue": "RDP Network Level Authentication Disabled",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "RDP endpoints without NLA are more susceptible to credential theft and brute-force attacks.",
+      "recommendation": "Require Network Level Authentication (NLA) for all RDP endpoints.",
+      "remediation_steps": [
+        "Enable NLA in Windows remote access settings or via Group Policy.",
+        "Restrict RDP access paths to approved management networks.",
+        "Retest remote logon behavior after hardening."
+      ],
+      "evidence": "",
+      "cis_control_id": "6.3",
+      "nist_csf": [
+        "PR.AC-7",
+        "PR.PT-4"
+      ],
+      "owasp_category": "A07:2021-Identification and Authentication Failures",
+      "risk_score": 86,
+      "metadata": {
+        "hostname": "onprem-vdi-01.corp.local",
+        "network_segment": "user-access",
+        "os": "Windows 10 Enterprise",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-vdi-01",
+      "issue": "Host Firewall Disabled",
+      "severity": "Critical",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Disabling host firewall protections exposes services broadly and weakens segmentation controls.",
+      "recommendation": "Enable host-based firewalls and enforce baseline inbound rules.",
+      "remediation_steps": [
+        "Enable Windows Defender Firewall (or equivalent) on affected hosts.",
+        "Apply baseline allow-list policy for required management and app ports.",
+        "Block unsolicited inbound traffic by default."
+      ],
+      "evidence": "",
+      "cis_control_id": "12.2",
+      "nist_csf": [
+        "PR.PT-4",
+        "DE.CM-1"
+      ],
+      "owasp_category": "A05:2021-Security Misconfiguration",
+      "risk_score": 92,
+      "metadata": {
+        "hostname": "onprem-vdi-01.corp.local",
+        "network_segment": "user-access",
+        "os": "Windows 10 Enterprise",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-vdi-01",
+      "issue": "Critical Patches Overdue",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Delayed patching increases exposure windows for known exploited vulnerabilities.",
+      "recommendation": "Apply overdue security patches within the defined remediation SLA.",
+      "remediation_steps": [
+        "Prioritize internet-exposed and privileged systems first.",
+        "Patch and reboot assets through approved maintenance windows.",
+        "Rescan to verify missing critical patches are remediated."
+      ],
+      "evidence": "",
+      "cis_control_id": "7.3",
+      "nist_csf": [
+        "PR.IP-12",
+        "DE.CM-8"
+      ],
+      "owasp_category": "A06:2021-Vulnerable and Outdated Components",
+      "risk_score": 88,
+      "metadata": {
+        "hostname": "onprem-vdi-01.corp.local",
+        "network_segment": "user-access",
+        "os": "Windows 10 Enterprise",
+        "data_source": "nessus-connector",
+        "patch_days_overdue": 34
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-backup-01",
+      "issue": "Unsupported Operating System Detected",
+      "severity": "Critical",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Unsupported operating systems no longer receive security patches and carry elevated exploit risk.",
+      "recommendation": "Migrate unsupported operating systems to supported versions.",
+      "remediation_steps": [
+        "Identify business owners for unsupported assets.",
+        "Plan and execute upgrade or replacement to supported OS baselines.",
+        "Isolate legacy systems until migration is completed."
+      ],
+      "evidence": "",
+      "cis_control_id": "7.7",
+      "nist_csf": [
+        "ID.AM-2",
+        "PR.IP-12"
+      ],
+      "owasp_category": "A06:2021-Vulnerable and Outdated Components",
+      "risk_score": 96,
+      "metadata": {
+        "hostname": "onprem-backup-01.corp.local",
+        "network_segment": "backup",
+        "os": "Windows Server 2008 R2",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-printer-mgmt-01",
+      "issue": "SMB Signing Not Enforced",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "SMB relay attacks become more feasible when SMB signing is disabled.",
+      "recommendation": "Enforce SMB signing on all on-prem Windows servers.",
+      "remediation_steps": [
+        "Apply Group Policy to require SMB signing for clients and servers.",
+        "Validate policy application on critical hosts.",
+        "Rescan to confirm SMB relay exposure is removed."
+      ],
+      "evidence": "",
+      "cis_control_id": "4.8",
+      "nist_csf": [
+        "PR.AC-5",
+        "PR.PT-3"
+      ],
+      "owasp_category": "A05:2021-Security Misconfiguration",
+      "risk_score": 84,
+      "metadata": {
+        "hostname": "onprem-printer-mgmt-01.corp.local",
+        "network_segment": "operations",
+        "os": "Windows Server 2016",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-printer-mgmt-01",
+      "issue": "RDP Network Level Authentication Disabled",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "RDP endpoints without NLA are more susceptible to credential theft and brute-force attacks.",
+      "recommendation": "Require Network Level Authentication (NLA) for all RDP endpoints.",
+      "remediation_steps": [
+        "Enable NLA in Windows remote access settings or via Group Policy.",
+        "Restrict RDP access paths to approved management networks.",
+        "Retest remote logon behavior after hardening."
+      ],
+      "evidence": "",
+      "cis_control_id": "6.3",
+      "nist_csf": [
+        "PR.AC-7",
+        "PR.PT-4"
+      ],
+      "owasp_category": "A07:2021-Identification and Authentication Failures",
+      "risk_score": 86,
+      "metadata": {
+        "hostname": "onprem-printer-mgmt-01.corp.local",
+        "network_segment": "operations",
+        "os": "Windows Server 2016",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-printer-mgmt-01",
+      "issue": "Host Firewall Disabled",
+      "severity": "Critical",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Disabling host firewall protections exposes services broadly and weakens segmentation controls.",
+      "recommendation": "Enable host-based firewalls and enforce baseline inbound rules.",
+      "remediation_steps": [
+        "Enable Windows Defender Firewall (or equivalent) on affected hosts.",
+        "Apply baseline allow-list policy for required management and app ports.",
+        "Block unsolicited inbound traffic by default."
+      ],
+      "evidence": "",
+      "cis_control_id": "12.2",
+      "nist_csf": [
+        "PR.PT-4",
+        "DE.CM-1"
+      ],
+      "owasp_category": "A05:2021-Security Misconfiguration",
+      "risk_score": 92,
+      "metadata": {
+        "hostname": "onprem-printer-mgmt-01.corp.local",
+        "network_segment": "operations",
+        "os": "Windows Server 2016",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-printer-mgmt-01",
+      "issue": "Local Admin Password Rotation Missing",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Static local admin credentials can be reused laterally after compromise.",
+      "recommendation": "Implement local administrator password rotation (for example via Microsoft LAPS).",
+      "remediation_steps": [
+        "Deploy LAPS (or equivalent) for local administrator credential rotation.",
+        "Require unique host-level local admin passwords.",
+        "Audit privileged local account usage and stale accounts."
+      ],
+      "evidence": "",
+      "cis_control_id": "5.4",
+      "nist_csf": [
+        "PR.AC-1",
+        "PR.AC-6"
+      ],
+      "owasp_category": "A07:2021-Identification and Authentication Failures",
+      "risk_score": 83,
+      "metadata": {
+        "hostname": "onprem-printer-mgmt-01.corp.local",
+        "network_segment": "operations",
+        "os": "Windows Server 2016",
+        "data_source": "nessus-connector"
+      }
+    },
+    {
+      "service": "On-Prem Infrastructure (Nessus)",
+      "resource_id": "onprem-printer-mgmt-01",
+      "issue": "Critical Patches Overdue",
+      "severity": "High",
+      "compliance_standard": "CIS Controls v8 / Nessus Audit",
+      "risk_description": "Delayed patching increases exposure windows for known exploited vulnerabilities.",
+      "recommendation": "Apply overdue security patches within the defined remediation SLA.",
+      "remediation_steps": [
+        "Prioritize internet-exposed and privileged systems first.",
+        "Patch and reboot assets through approved maintenance windows.",
+        "Rescan to verify missing critical patches are remediated."
+      ],
+      "evidence": "",
+      "cis_control_id": "7.3",
+      "nist_csf": [
+        "PR.IP-12",
+        "DE.CM-8"
+      ],
+      "owasp_category": "A06:2021-Vulnerable and Outdated Components",
+      "risk_score": 88,
+      "metadata": {
+        "hostname": "onprem-printer-mgmt-01.corp.local",
+        "network_segment": "operations",
+        "os": "Windows Server 2016",
+        "data_source": "nessus-connector",
+        "patch_days_overdue": 140
+      }
+    }
+  ]
+}
