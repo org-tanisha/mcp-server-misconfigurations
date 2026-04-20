@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import logging
 from pathlib import Path
+from collections import Counter
 
 from mcp_server.config import Settings
 from scanners.config_scanner import AWSConfigScanner
@@ -13,6 +15,7 @@ from scanners.s3_scanner import S3Scanner
 from scanners.security_group_scanner import SecurityGroupScanner
 from utils.jira import build_jira_payload
 from utils.models import Finding
+from utils.redaction import default_redactor
 from utils.reporting import (
     build_trend_report,
     build_executive_summary,
@@ -27,6 +30,15 @@ from utils.reporting import (
 class ToolRegistry:
     def __init__(self, settings: Settings):
         self.settings = settings
+        self.logger = logging.getLogger("mcp_server.tools")
+
+    def _redact_findings(self, findings: list[Finding]) -> list[dict]:
+        """Redact and dump findings."""
+        redacted = []
+        for finding in findings:
+            data = finding.model_dump()
+            redacted.append(default_redactor.redact_dict(data))
+        return redacted
 
     def _annotate_findings(self, findings: list[Finding], profile_name: str | None) -> list[Finding]:
         if not profile_name:
@@ -40,6 +52,7 @@ class ToolRegistry:
 
     def _scan_all_findings(self, settings: Settings | None = None) -> list[Finding]:
         active_settings = settings or self.settings
+        self.logger.info(f"Starting scan for profile: {active_settings.aws_profile or 'default'}")
         findings: list[Finding] = []
         scanners = [
             S3Scanner(active_settings),
@@ -53,8 +66,21 @@ class ToolRegistry:
             scanners.append(AWSConfigScanner(active_settings))
         if active_settings.enable_onprem_nessus:
             scanners.append(NessusOnPremScanner(active_settings))
+        
         for scanner in scanners:
-            findings.extend(scanner.scan().findings)
+            try:
+                scanner_findings = scanner.scan().findings
+                findings.extend(scanner_findings)
+                self.logger.info(f"Scanner {scanner.__class__.__name__} found {len(scanner_findings)} issues")
+            except Exception as e:
+                self.logger.error(f"Scanner {scanner.__class__.__name__} failed: {e}")
+
+        # Log summary statistics
+        severity_counts = Counter(f.severity.upper() for f in findings)
+        self.logger.info(f"Scan complete. Total findings: {len(findings)}")
+        for severity, count in severity_counts.items():
+            self.logger.info(f"  {severity}: {count}")
+            
         return self._annotate_findings(findings, active_settings.aws_profile)
 
     def _history_file(self, prefix: str) -> Path:
@@ -62,30 +88,30 @@ class ToolRegistry:
         return Path(self.settings.history_dir) / f"{prefix}_{timestamp}.json"
 
     def scan_s3_misconfigurations(self) -> list[dict]:
-        return [item.model_dump() for item in S3Scanner(self.settings).scan().findings]
+        return self._redact_findings(S3Scanner(self.settings).scan().findings)
 
     def scan_iam_misconfigurations(self) -> list[dict]:
-        return [item.model_dump() for item in IAMScanner(self.settings).scan().findings]
+        return self._redact_findings(IAMScanner(self.settings).scan().findings)
 
     def scan_ec2_misconfigurations(self) -> list[dict]:
         findings = EC2Scanner(self.settings).scan().findings
         findings.extend(SecurityGroupScanner(self.settings).scan().findings)
-        return [item.model_dump() for item in findings]
+        return self._redact_findings(findings)
 
     def scan_rds_misconfigurations(self) -> list[dict]:
-        return [item.model_dump() for item in RDSScanner(self.settings).scan().findings]
+        return self._redact_findings(RDSScanner(self.settings).scan().findings)
 
     def scan_security_groups(self) -> list[dict]:
-        return [item.model_dump() for item in SecurityGroupScanner(self.settings).scan().findings]
+        return self._redact_findings(SecurityGroupScanner(self.settings).scan().findings)
 
     def scan_cloudtrail_status(self) -> list[dict]:
-        return [item.model_dump() for item in CloudTrailScanner(self.settings).scan().findings]
+        return self._redact_findings(CloudTrailScanner(self.settings).scan().findings)
 
     def scan_onprem_nessus_vulnerabilities(self) -> list[dict]:
-        return [item.model_dump() for item in NessusOnPremScanner(self.settings).scan().findings]
+        return self._redact_findings(NessusOnPremScanner(self.settings).scan().findings)
 
     def scan_all_resources(self) -> list[dict]:
-        return [item.model_dump() for item in self._scan_all_findings()]
+        return self._redact_findings(self._scan_all_findings())
 
     def scan_multiple_accounts(self) -> dict:
         profiles = self.settings.aws_profiles or ([self.settings.aws_profile] if self.settings.aws_profile else [])
@@ -98,7 +124,7 @@ class ToolRegistry:
                 {
                     "aws_profile": profile,
                     "finding_count": len(findings),
-                    "findings": [item.model_dump() for item in findings],
+                    "findings": self._redact_findings(findings),
                 }
             )
             all_findings.extend(findings)

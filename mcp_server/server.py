@@ -5,11 +5,28 @@ from mcp.server.fastmcp import FastMCP
 from mcp_server.config import Settings
 from mcp_server.tools import ToolRegistry
 
+AWS_INSTRUCTIONS = """
+AWS Security Scanner
+
+Purpose:
+- Security posture reviews for AWS resources (S3, IAM, EC2, RDS, etc.)
+- Misconfiguration audits
+- Compliance reporting (CIS, NIST)
+
+Safety Rules:
+- Use least privilege AWS permissions
+- Prefer read-only scanning
+- Never modify resources
+- Redaction is automatically applied to sensitive findings
+"""
 
 def build_server() -> FastMCP:
     settings = Settings.from_env()
     registry = ToolRegistry(settings)
-    server = FastMCP("aws-misconfig-scanner")
+    server = FastMCP(
+        "aws-misconfig-scanner",
+        instructions=AWS_INSTRUCTIONS
+    )
 
     server.tool()(registry.scan_s3_misconfigurations)
     server.tool()(registry.scan_iam_misconfigurations)

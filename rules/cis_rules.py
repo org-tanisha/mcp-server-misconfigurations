@@ -504,6 +504,7 @@ def build_finding(
     issue: str,
     rule_key: str,
     risk_description: str,
+    evidence: str = "",
     metadata: dict[str, str | int | bool] | None = None,
 ) -> Finding:
     rule = RULES[rule_key]
@@ -516,6 +517,7 @@ def build_finding(
         risk_description=risk_description,
         recommendation=rule["recommendation"],
         remediation_steps=rule["remediation_steps"],
+        evidence=evidence,
         cis_control_id=rule["cis_control_id"],
         nist_csf=rule["nist_csf"],
         owasp_category=rule["owasp_category"],

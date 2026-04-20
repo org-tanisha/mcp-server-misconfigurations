@@ -12,6 +12,7 @@ class Finding(BaseModel):
     risk_description: str
     recommendation: str
     remediation_steps: list[str]
+    evidence: str = ""
     cis_control_id: str
     nist_csf: list[str] = Field(default_factory=list)
     owasp_category: str | None = None
