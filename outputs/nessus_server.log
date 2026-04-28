@@ -1,0 +1,58 @@
+
+--- Nessus Server Starting ---
+Building server...
+Server built, running stdio...
+
+--- Nessus Launcher Starting ---
+Processing request of type ListToolsRequest
+Processing request of type ListPromptsRequest
+Processing request of type ListResourcesRequest
+Processing request of type CallToolRequest
+
+--- Nessus Launcher Starting ---
+Processing request of type ListToolsRequest
+Processing request of type ListPromptsRequest
+Processing request of type ListResourcesRequest
+
+--- Nessus Launcher Starting ---
+Processing request of type ListToolsRequest
+Processing request of type ListPromptsRequest
+Processing request of type ListResourcesRequest
+
+--- Nessus Launcher Starting ---
+Processing request of type ListToolsRequest
+Processing request of type ListPromptsRequest
+Processing request of type ListResourcesRequest
+Processing request of type CallToolRequest
+Processing request of type CallToolRequest
+
+--- Nessus Launcher Starting ---
+Processing request of type ListToolsRequest
+Processing request of type ListPromptsRequest
+Processing request of type ListResourcesRequest
+Processing request of type CallToolRequest
+Starting Nessus on-prem scan
+Nessus scan found 30 issues
+  HIGH: 21
+  CRITICAL: 9
+Processing request of type CallToolRequest
+Generating Nessus on-prem report
+Report generated: C:\Users\sodhi\OneDrive\Desktop\mcp (2)\mcp\reports\onprem_nessus_report.json
+Processing request of type CallToolRequest
+Starting Nessus on-prem scan
+Nessus scan found 30 issues
+  HIGH: 21
+  CRITICAL: 9
+Processing request of type CallToolRequest
+Generating Nessus on-prem report
+Report generated: C:\Users\sodhi\OneDrive\Desktop\mcp (2)\mcp\reports\onprem_nessus_report.json
+
+--- Nessus Launcher Starting ---
+Processing request of type ListToolsRequest
+Processing request of type ListPromptsRequest
+Processing request of type ListResourcesRequest
+
+--- Nessus Launcher Starting ---
+Processing request of type ListToolsRequest
+Processing request of type ListPromptsRequest
+Processing request of type ListResourcesRequest

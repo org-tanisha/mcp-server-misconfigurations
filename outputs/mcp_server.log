@@ -1,0 +1,213 @@
+
+--- Server Starting ---
+Traceback (most recent call last):
+  File "C:\Users\sodhi\OneDrive\Desktop\mcp (2)\mcp\robust_launcher.py", line 16, in <module>
+    from mcp_server.server import build_server
+  File "C:\Users\sodhi\OneDrive\Desktop\mcp (2)\mcp\mcp_server\server.py", line 3, in <module>
+    from mcp.server.fastmcp import FastMCP
+ImportError: cannot import name 'FastMCP' from 'mcp.server.fastmcp' (unknown location)
+
+--- Server Starting ---
+Building server...
+Server built, running stdio...
+
+--- AWS Launcher Starting ---
+Processing request of type ListToolsRequest
+Processing request of type ListPromptsRequest
+Processing request of type ListResourcesRequest
+Processing request of type CallToolRequest
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Processing request of type CallToolRequest
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Processing request of type CallToolRequest
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+
+--- AWS Launcher Starting ---
+Processing request of type ListToolsRequest
+Processing request of type ListPromptsRequest
+Processing request of type ListResourcesRequest
+
+--- AWS Launcher Starting ---
+Processing request of type ListToolsRequest
+Processing request of type ListPromptsRequest
+Processing request of type ListResourcesRequest
+
+--- AWS Launcher Starting ---
+Processing request of type ListToolsRequest
+Processing request of type ListPromptsRequest
+Processing request of type ListResourcesRequest
+Processing request of type CallToolRequest
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Processing request of type CallToolRequest
+Found credentials in shared credentials file: ~/.aws/credentials
+Processing request of type CallToolRequest
+Found credentials in shared credentials file: ~/.aws/credentials
+Processing request of type CallToolRequest
+Found credentials in shared credentials file: ~/.aws/credentials
+Processing request of type CallToolRequest
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Processing request of type CallToolRequest
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Processing request of type CallToolRequest
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Processing request of type CallToolRequest
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Processing request of type CallToolRequest
+Found credentials in shared credentials file: ~/.aws/credentials
+Processing request of type CallToolRequest
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+
+--- AWS Launcher Starting ---
+Processing request of type ListToolsRequest
+Processing request of type ListPromptsRequest
+Processing request of type ListResourcesRequest
+Processing request of type CallToolRequest
+Starting scan for profile: default
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Scanner S3Scanner found 9 issues
+Scanner IAMScanner found 0 issues
+Scanner EC2Scanner found 4 issues
+Scanner RDSScanner found 0 issues
+Scanner SecurityGroupScanner found 1 issues
+Scanner CloudTrailScanner found 1 issues
+Scan complete. Total findings: 15
+  HIGH: 3
+  MEDIUM: 7
+  LOW: 2
+  CRITICAL: 3
+Processing request of type CallToolRequest
+Starting scan for profile: default
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Scanner S3Scanner found 9 issues
+Scanner IAMScanner found 0 issues
+Scanner EC2Scanner found 4 issues
+Scanner RDSScanner found 0 issues
+Scanner SecurityGroupScanner found 1 issues
+Scanner CloudTrailScanner found 1 issues
+Scan complete. Total findings: 15
+  HIGH: 3
+  MEDIUM: 7
+  LOW: 2
+  CRITICAL: 3
+Processing request of type CallToolRequest
+Starting scan for profile: default
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Scanner S3Scanner found 9 issues
+Scanner IAMScanner found 0 issues
+Scanner EC2Scanner found 4 issues
+Scanner RDSScanner found 0 issues
+Scanner SecurityGroupScanner found 1 issues
+Scanner CloudTrailScanner found 1 issues
+Scan complete. Total findings: 15
+  HIGH: 3
+  MEDIUM: 7
+  LOW: 2
+  CRITICAL: 3
+Processing request of type CallToolRequest
+Starting scan for profile: default
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Scanner S3Scanner found 9 issues
+Scanner IAMScanner found 0 issues
+Scanner EC2Scanner found 4 issues
+Scanner RDSScanner found 0 issues
+Scanner SecurityGroupScanner found 1 issues
+Scanner CloudTrailScanner found 1 issues
+Scan complete. Total findings: 15
+  HIGH: 3
+  MEDIUM: 7
+  LOW: 2
+  CRITICAL: 3
+Processing request of type CallToolRequest
+Starting scan for profile: default
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Found credentials in shared credentials file: ~/.aws/credentials
+Scanner S3Scanner found 9 issues
+Scanner IAMScanner found 0 issues
+Scanner EC2Scanner found 4 issues
+Scanner RDSScanner found 0 issues
+Scanner SecurityGroupScanner found 1 issues
+Scanner CloudTrailScanner found 1 issues
+Scan complete. Total findings: 15
+  HIGH: 3
+  MEDIUM: 7
+  LOW: 2
+  CRITICAL: 3
+
+--- AWS Launcher Starting ---
+Processing request of type ListToolsRequest
+Processing request of type ListPromptsRequest
+Processing request of type ListResourcesRequest
+
+--- AWS Launcher Starting ---
+Processing request of type ListToolsRequest
+Processing request of type ListPromptsRequest
+Processing request of type ListResourcesRequest
