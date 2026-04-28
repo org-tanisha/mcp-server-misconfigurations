@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "generated_at": "2026-04-19",
+    "total_tickets": 41,
+    "sources": ["AWS Misconfiguration Scanner", "Nessus On-Prem Scanner"],
+    "project_key": "SEC",
+    "severity_summary": {
+      "Critical": 8,
+      "High": 16,
+      "Medium": 7,
+      "Low": 3
+    }
+  },
+  "tickets": [
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[AWS Security] Amazon EC2: Public EC2 Instance Exposes SSH on i-0121f3ba51aef8fec",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Highest" },
+        "labels": ["aws-security", "amazon-ec2", "critical", "ssh", "network-exposure"],
+        "description": "h2. Finding Details\n*Service:* Amazon EC2\n*Resource ID:* i-0121f3ba51aef8fec\n*Severity:* Critical\n*Risk Score:* 98\n*CIS Control:* 4.1\n*Compliance:* CIS AWS Foundations Benchmark v1.4\n*NIST CSF:* PR.AC-3, PR.PT-4\n*OWASP:* A05:2021-Security Misconfiguration\n\nh2. Issue\nPublic EC2 Instance Exposes SSH\n\nh2. Risk\nA public IP combined with open SSH creates a high-probability remote attack path.\n\nh2. Recommendation\nRemove the public IP or restrict SSH to approved administrative addresses.\n\nh2. Remediation Steps\n# Open the EC2 instance network details.\n# Review attached security groups for port 22 access from 0.0.0.0/0.\n# Remove the public IP or restrict inbound SSH immediately."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[AWS Security] Security Group: SSH Open to the Internet on sg-07918ad776a829ead",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Highest" },
+        "labels": ["aws-security", "security-group", "critical", "ssh"],
+        "description": "h2. Finding Details\n*Service:* Security Group\n*Resource ID:* sg-07918ad776a829ead\n*Severity:* Critical\n*Risk Score:* 95\n*CIS Control:* 4.1\n*Compliance:* CIS AWS Foundations Benchmark v1.4\n*NIST CSF:* PR.AC-3, PR.PT-4\n*OWASP:* A05:2021-Security Misconfiguration\n\nh2. Issue\nSSH Open to the Internet\n\nh2. Risk\nUnrestricted SSH access creates a direct remote administration attack path.\n\nh2. Recommendation\nRestrict SSH access to approved IP addresses or a secure bastion.\n\nh2. Remediation Steps\n# Open the EC2 security groups console.\n# Find inbound rule for port 22.\n# Replace 0.0.0.0/0 with approved administrative IP ranges."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[AWS Security] AWS CloudTrail: CloudTrail Logging Disabled on account",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Highest" },
+        "labels": ["aws-security", "cloudtrail", "critical", "logging"],
+        "description": "h2. Finding Details\n*Service:* AWS CloudTrail\n*Resource ID:* account\n*Severity:* Critical\n*Risk Score:* 92\n*CIS Control:* 3.1\n*Compliance:* CIS AWS Foundations Benchmark v1.4\n*NIST CSF:* DE.CM-7, DE.AE-3\n*OWASP:* A09:2021-Security Logging and Monitoring Failures\n\nh2. Issue\nCloudTrail Logging Disabled\n\nh2. Risk\nMissing CloudTrail visibility reduces the ability to detect and investigate suspicious activity.\n\nh2. Recommendation\nEnable a multi-region CloudTrail trail with logging turned on.\n\nh2. Remediation Steps\n# Open the CloudTrail console.\n# Create or select a trail.\n# Enable multi-region logging and verify trail status is logging."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[AWS Security] Amazon S3: Publicly Accessible Bucket on demos-s3bucket",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "High" },
+        "labels": ["aws-security", "amazon-s3", "high", "public-access"],
+        "description": "h2. Finding Details\n*Service:* Amazon S3\n*Resource ID:* demos-s3bucket\n*Severity:* High\n*Risk Score:* 90\n*CIS Control:* 2.1.1\n*Compliance:* CIS AWS Foundations Benchmark v1.4\n*NIST CSF:* PR.AC-4, PR.DS-1\n*OWASP:* A01:2021-Broken Access Control\n\nh2. Issue\nPublicly Accessible Bucket\n\nh2. Risk\nMissing Block Public Access settings increase the risk of unintended exposure.\n\nh2. Recommendation\nEnable S3 Block Public Access and tighten bucket policies.\n\nh2. Remediation Steps\n# Open the S3 console.\n# Select the affected bucket.\n# Enable Block Public Access and review the bucket policy."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[AWS Security] Amazon S3: Bucket Policy Does Not Enforce TLS on demos-s3bucket",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "High" },
+        "labels": ["aws-security", "amazon-s3", "high", "tls", "encryption"],
+        "description": "h2. Finding Details\n*Service:* Amazon S3\n*Resource ID:* demos-s3bucket\n*Severity:* High\n*Risk Score:* 85\n*CIS Control:* 2.1.1\n*Compliance:* CIS AWS Foundations Benchmark v1.4\n*NIST CSF:* PR.DS-2\n*OWASP:* A02:2021-Cryptographic Failures\n\nh2. Issue\nBucket Policy Does Not Enforce TLS\n\nh2. Risk\nAllowing non-TLS requests can expose data in transit to interception and tampering risks.\n\nh2. Recommendation\nAdd a bucket policy deny statement for requests where aws:SecureTransport is false.\n\nh2. Remediation Steps\n# Open bucket policy editor.\n# Add Deny for all S3 actions when aws:SecureTransport equals false.\n# Retest access from HTTPS and HTTP clients."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[AWS Security] Amazon EC2: Unencrypted EBS Volume Attached on i-0121f3ba51aef8fec",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "High" },
+        "labels": ["aws-security", "amazon-ec2", "high", "ebs", "encryption"],
+        "description": "h2. Finding Details\n*Service:* Amazon EC2\n*Resource ID:* i-0121f3ba51aef8fec (Volume: vol-04298f7c59f59453c)\n*Severity:* High\n*Risk Score:* 82\n*CIS Control:* 2.2.1\n*Compliance:* CIS AWS Foundations Benchmark v1.4\n*NIST CSF:* PR.DS-1\n*OWASP:* A02:2021-Cryptographic Failures\n\nh2. Issue\nUnencrypted EBS Volume Attached\n\nh2. Risk\nUnencrypted EBS volumes increase data exposure risk if snapshots or underlying storage are accessed improperly.\n\nh2. Recommendation\nEnable EBS encryption for all attached volumes.\n\nh2. Remediation Steps\n# Create encrypted snapshots from unencrypted volumes.\n# Restore encrypted volumes from those snapshots.\n# Reattach encrypted volumes and validate application health."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[AWS Security] Amazon S3: Default Encryption Does Not Enforce KMS on demos-s3bucket",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Medium" },
+        "labels": ["aws-security", "amazon-s3", "medium", "kms", "encryption"],
+        "description": "h2. Finding Details\n*Service:* Amazon S3\n*Resource ID:* demos-s3bucket\n*Severity:* Medium\n*Risk Score:* 68\n*CIS Control:* 2.1.2\n*Compliance:* CIS AWS Foundations Benchmark v1.4\n*NIST CSF:* PR.DS-1, PR.AC-1\n*OWASP:* A02:2021-Cryptographic Failures\n\nh2. Issue\nDefault Encryption Does Not Enforce KMS\n\nh2. Risk\nUsing SSE-S3 instead of KMS can reduce key governance and encryption audit controls for sensitive data.\n\nh2. Recommendation\nEnforce SSE-KMS as the default bucket encryption standard.\n\nh2. Remediation Steps\n# Open bucket default encryption settings.\n# Select AWS KMS key-based encryption (SSE-KMS).\n# Validate key policy access for required principals."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[AWS Security] Amazon S3: Object Lock Not Enabled on demos-s3bucket",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Medium" },
+        "labels": ["aws-security", "amazon-s3", "medium", "object-lock"],
+        "description": "h2. Finding Details\n*Service:* Amazon S3\n*Resource ID:* demos-s3bucket\n*Severity:* Medium\n*Risk Score:* 64\n*CIS Control:* 2.1.3\n*Compliance:* CIS AWS Foundations Benchmark v1.4\n*NIST CSF:* PR.DS-1, RC.RP-1\n*OWASP:* A05:2021-Security Misconfiguration\n\nh2. Issue\nObject Lock Not Enabled\n\nh2. Risk\nBuckets without Object Lock cannot enforce immutability controls for regulated or ransomware-sensitive data.\n\nh2. Recommendation\nEnable Object Lock for buckets that require immutable retention.\n\nh2. Remediation Steps\n# Create a new Object Lock-enabled bucket if current bucket was not created with Object Lock.\n# Configure retention mode (governance or compliance) and retention period.\n# Validate legal hold and retention operations."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[AWS Security] Amazon S3: Server Access Logging Disabled on demos-s3bucket",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Medium" },
+        "labels": ["aws-security", "amazon-s3", "medium", "logging"],
+        "description": "h2. Finding Details\n*Service:* Amazon S3\n*Resource ID:* demos-s3bucket\n*Severity:* Medium\n*Risk Score:* 60\n*CIS Control:* 3.1\n*Compliance:* CIS AWS Foundations Benchmark v1.4\n*NIST CSF:* DE.CM-7, DE.AE-3\n*OWASP:* A09:2021-Security Logging and Monitoring Failures\n\nh2. Issue\nServer Access Logging Disabled\n\nh2. Risk\nMissing access logs reduces visibility into object access patterns and incident investigations.\n\nh2. Recommendation\nEnable S3 server access logging to a dedicated log bucket.\n\nh2. Remediation Steps\n# Create or select a centralized logging bucket.\n# Enable server access logging on the source bucket.\n# Verify logs are being delivered successfully."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[AWS Security] Amazon EC2: EC2 Instance Has Public IP on i-0121f3ba51aef8fec",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Medium" },
+        "labels": ["aws-security", "amazon-ec2", "medium", "network-exposure"],
+        "description": "h2. Finding Details\n*Service:* Amazon EC2\n*Resource ID:* i-0121f3ba51aef8fec\n*Severity:* Medium\n*Risk Score:* 60\n*CIS Control:* 4.1\n*Compliance:* CIS AWS Foundations Benchmark v1.4\n*NIST CSF:* PR.AC-3, DE.CM-1\n*OWASP:* A05:2021-Security Misconfiguration\n\nh2. Issue\nEC2 Instance Has Public IP\n\nh2. Risk\nDirect internet exposure increases attack surface for compute workloads.\n\nh2. Recommendation\nRemove unnecessary public IP assignments and use private networking.\n\nh2. Remediation Steps\n# Review the EC2 network interface.\n# Disassociate the public IP if not required.\n# Route administration through approved secure access paths."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[AWS Security] Amazon S3: Replication Not Configured on demos-s3bucket",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Medium" },
+        "labels": ["aws-security", "amazon-s3", "medium", "replication", "resilience"],
+        "description": "h2. Finding Details\n*Service:* Amazon S3\n*Resource ID:* demos-s3bucket\n*Severity:* Medium\n*Risk Score:* 58\n*CIS Control:* 2.1.3\n*Compliance:* CIS AWS Foundations Benchmark v1.4\n*NIST CSF:* RC.RP-1, PR.IP-4\n*OWASP:* A05:2021-Security Misconfiguration\n\nh2. Issue\nReplication Not Configured\n\nh2. Risk\nBuckets without replication have weaker resilience for regional outages and accidental loss events.\n\nh2. Recommendation\nEnable S3 replication for buckets requiring disaster recovery or cross-region resilience.\n\nh2. Remediation Steps\n# Create destination bucket and IAM replication role.\n# Configure replication rules on source bucket.\n# Validate replicated objects and monitoring alerts."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[AWS Security] Amazon S3: Bucket Versioning Disabled on demos-s3bucket",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Medium" },
+        "labels": ["aws-security", "amazon-s3", "medium", "versioning"],
+        "description": "h2. Finding Details\n*Service:* Amazon S3\n*Resource ID:* demos-s3bucket\n*Severity:* Medium\n*Risk Score:* 55\n*CIS Control:* 2.1.3\n*Compliance:* CIS AWS Foundations Benchmark v1.4\n*NIST CSF:* PR.IP-4, RC.RP-1\n*OWASP:* A05:2021-Security Misconfiguration\n\nh2. Issue\nBucket Versioning Disabled\n\nh2. Risk\nWithout versioning, recovery from accidental deletion or overwrite is weaker.\n\nh2. Recommendation\nEnable versioning to support recovery and retention use cases.\n\nh2. Remediation Steps\n# Open the S3 console.\n# Select the bucket.\n# Enable bucket versioning."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[AWS Security] Amazon EC2: EC2 Instance Missing IAM Role on i-0121f3ba51aef8fec",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Medium" },
+        "labels": ["aws-security", "amazon-ec2", "medium", "iam"],
+        "description": "h2. Finding Details\n*Service:* Amazon EC2\n*Resource ID:* i-0121f3ba51aef8fec\n*Severity:* Medium\n*Risk Score:* 55\n*CIS Control:* 1.23\n*Compliance:* CIS AWS Foundations Benchmark v1.4\n*NIST CSF:* PR.AC-1, PR.AC-4\n*OWASP:* A05:2021-Security Misconfiguration\n\nh2. Issue\nEC2 Instance Missing IAM Role\n\nh2. Risk\nWorkloads without a scoped IAM role often rely on static credentials and weaker secret management.\n\nh2. Recommendation\nAttach a least-privilege IAM instance profile to each EC2 workload.\n\nh2. Remediation Steps\n# Create or select a least-privilege IAM role for the workload.\n# Attach the role as an instance profile to the EC2 instance.\n# Remove long-lived static credentials from application hosts."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[AWS Security] Amazon S3: Lifecycle Policy Missing on demos-s3bucket",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Low" },
+        "labels": ["aws-security", "amazon-s3", "low", "lifecycle"],
+        "description": "h2. Finding Details\n*Service:* Amazon S3\n*Resource ID:* demos-s3bucket\n*Severity:* Low\n*Risk Score:* 35\n*CIS Control:* 2.1.3\n*Compliance:* CIS AWS Foundations Benchmark v1.4\n*NIST CSF:* PR.IP-4\n*OWASP:* A05:2021-Security Misconfiguration\n\nh2. Issue\nLifecycle Policy Missing\n\nh2. Risk\nWithout lifecycle controls, stale or noncurrent objects can accumulate and increase cost and retention risk.\n\nh2. Recommendation\nDefine lifecycle rules for retention and noncurrent object cleanup.\n\nh2. Remediation Steps\n# Open bucket lifecycle configuration.\n# Add retention and transition rules for current and previous versions.\n# Validate lifecycle rule scope against data policy."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[AWS Security] Amazon S3: Required Bucket Classification Tags Missing on demos-s3bucket",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Low" },
+        "labels": ["aws-security", "amazon-s3", "low", "tagging", "governance"],
+        "description": "h2. Finding Details\n*Service:* Amazon S3\n*Resource ID:* demos-s3bucket\n*Severity:* Low\n*Risk Score:* 32\n*Missing Tags:* data_classification, owner\n*CIS Control:* 1.3\n*Compliance:* CIS AWS Foundations Benchmark v1.4\n*NIST CSF:* ID.AM-1, GV.RR-1\n*OWASP:* A05:2021-Security Misconfiguration\n\nh2. Issue\nRequired Bucket Classification Tags Missing\n\nh2. Risk\nMissing ownership and classification tags weakens accountability and data governance controls.\n\nh2. Recommendation\nApply required ownership and data-classification tags to every production bucket.\n\nh2. Remediation Steps\n# Define required S3 tag policy (owner, data_classification).\n# Apply missing tags to bucket resources.\n# Enforce tags with preventive controls where possible."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] onprem-backup-01: Unsupported Operating System Detected (Windows Server 2008 R2)",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Highest" },
+        "labels": ["nessus", "on-prem", "critical", "unsupported-os", "patching"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Host:* onprem-backup-01.corp.local\n*OS:* Windows Server 2008 R2\n*Network Segment:* backup\n*Severity:* Critical\n*Risk Score:* 96\n*CIS Control:* 7.7\n*Compliance:* CIS Controls v8 / Nessus Audit\n*NIST CSF:* ID.AM-2, PR.IP-12\n*OWASP:* A06:2021-Vulnerable and Outdated Components\n\nh2. Issue\nUnsupported Operating System Detected\n\nh2. Risk\nUnsupported operating systems no longer receive security patches and carry elevated exploit risk.\n\nh2. Recommendation\nMigrate unsupported operating systems to supported versions.\n\nh2. Remediation Steps\n# Identify business owners for unsupported assets.\n# Plan and execute upgrade or replacement to supported OS baselines.\n# Isolate legacy systems until migration is completed."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] onprem-web-01: Host Firewall Disabled (Windows Server 2016, DMZ)",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Highest" },
+        "labels": ["nessus", "on-prem", "critical", "firewall", "dmz"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Host:* onprem-web-01.corp.local\n*OS:* Windows Server 2016\n*Network Segment:* dmz\n*Severity:* Critical\n*Risk Score:* 92\n*CIS Control:* 12.2\n*Compliance:* CIS Controls v8 / Nessus Audit\n*NIST CSF:* PR.PT-4, DE.CM-1\n*OWASP:* A05:2021-Security Misconfiguration\n\nh2. Issue\nHost Firewall Disabled\n\nh2. Risk\nDisabling host firewall protections exposes services broadly and weakens segmentation controls.\n\nh2. Recommendation\nEnable host-based firewalls and enforce baseline inbound rules.\n\nh2. Remediation Steps\n# Enable Windows Defender Firewall on affected hosts.\n# Apply baseline allow-list policy for required management and app ports.\n# Block unsolicited inbound traffic by default."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] onprem-ad-01: Host Firewall Disabled (Windows Server 2012 R2, identity segment)",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Highest" },
+        "labels": ["nessus", "on-prem", "critical", "firewall", "active-directory"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Host:* onprem-ad-01.corp.local\n*OS:* Windows Server 2012 R2\n*Network Segment:* identity\n*Severity:* Critical\n*Risk Score:* 92\n*CIS Control:* 12.2\n*Compliance:* CIS Controls v8 / Nessus Audit\n*NIST CSF:* PR.PT-4, DE.CM-1\n*OWASP:* A05:2021-Security Misconfiguration\n\nh2. Issue\nHost Firewall Disabled on Active Directory Server\n\nh2. Risk\nDisabling host firewall on AD infrastructure exposes services broadly and weakens segmentation controls.\n\nh2. Recommendation\nEnable host-based firewalls and enforce baseline inbound rules.\n\nh2. Remediation Steps\n# Enable Windows Defender Firewall on affected hosts.\n# Apply baseline allow-list policy for required management and app ports.\n# Block unsolicited inbound traffic by default."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] onprem-linux-bastion-01: Host Firewall Disabled (Ubuntu 20.04, admin segment)",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Highest" },
+        "labels": ["nessus", "on-prem", "critical", "firewall", "bastion", "linux"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Host:* onprem-linux-bastion-01.corp.local\n*OS:* Ubuntu 20.04\n*Network Segment:* admin\n*Severity:* Critical\n*Risk Score:* 92\n*CIS Control:* 12.2\n*Compliance:* CIS Controls v8 / Nessus Audit\n*NIST CSF:* PR.PT-4, DE.CM-1\n*OWASP:* A05:2021-Security Misconfiguration\n\nh2. Issue\nHost Firewall Disabled on Linux Bastion\n\nh2. Risk\nDisabling host firewall on the bastion exposes services broadly and weakens segmentation controls.\n\nh2. Recommendation\nEnable ufw or iptables and enforce baseline inbound rules.\n\nh2. Remediation Steps\n# Enable ufw: sudo ufw enable.\n# Apply baseline allow-list policy for required ports.\n# Block unsolicited inbound traffic by default."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] onprem-vdi-01: Host Firewall Disabled (Windows 10 Enterprise, user-access segment)",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Highest" },
+        "labels": ["nessus", "on-prem", "critical", "firewall", "vdi"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Host:* onprem-vdi-01.corp.local\n*OS:* Windows 10 Enterprise\n*Network Segment:* user-access\n*Severity:* Critical\n*Risk Score:* 92\n*CIS Control:* 12.2\n*Compliance:* CIS Controls v8 / Nessus Audit\n*NIST CSF:* PR.PT-4, DE.CM-1\n*OWASP:* A05:2021-Security Misconfiguration\n\nh2. Issue\nHost Firewall Disabled on VDI Host\n\nh2. Risk\nDisabling host firewall protections exposes services broadly and weakens segmentation controls.\n\nh2. Recommendation\nEnable host-based firewalls and enforce baseline inbound rules.\n\nh2. Remediation Steps\n# Enable Windows Defender Firewall on affected hosts.\n# Apply baseline allow-list policy for required management and app ports.\n# Block unsolicited inbound traffic by default."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] onprem-printer-mgmt-01: Host Firewall Disabled (Windows Server 2016, operations)",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Highest" },
+        "labels": ["nessus", "on-prem", "critical", "firewall"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Host:* onprem-printer-mgmt-01.corp.local\n*OS:* Windows Server 2016\n*Network Segment:* operations\n*Severity:* Critical\n*Risk Score:* 92\n*CIS Control:* 12.2\n*Compliance:* CIS Controls v8 / Nessus Audit\n*NIST CSF:* PR.PT-4, DE.CM-1\n*OWASP:* A05:2021-Security Misconfiguration\n\nh2. Issue\nHost Firewall Disabled\n\nh2. Risk\nDisabling host firewall protections exposes services broadly and weakens segmentation controls.\n\nh2. Recommendation\nEnable host-based firewalls and enforce baseline inbound rules.\n\nh2. Remediation Steps\n# Enable Windows Defender Firewall on affected hosts.\n# Apply baseline allow-list policy for required management and app ports.\n# Block unsolicited inbound traffic by default."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] onprem-jump-01: Unsupported OS Detected (Windows Server 2012 R2, admin segment)",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Highest" },
+        "labels": ["nessus", "on-prem", "critical", "unsupported-os"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Host:* onprem-jump-01.corp.local\n*OS:* Windows Server 2012 R2\n*Network Segment:* admin\n*Severity:* Critical\n*Risk Score:* 96\n*CIS Control:* 7.7\n*Compliance:* CIS Controls v8 / Nessus Audit\n*NIST CSF:* ID.AM-2, PR.IP-12\n*OWASP:* A06:2021-Vulnerable and Outdated Components\n\nh2. Issue\nUnsupported Operating System Detected on Jump Server\n\nh2. Risk\nUnsupported operating systems no longer receive security patches and carry elevated exploit risk. Jump servers with EOL OS are a critical lateral movement risk.\n\nh2. Recommendation\nMigrate to a supported OS immediately.\n\nh2. Remediation Steps\n# Identify business owners for unsupported assets.\n# Plan and execute upgrade or replacement to supported OS baselines.\n# Isolate legacy systems until migration is completed."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] onprem-ad-01: Unsupported OS Detected (Windows Server 2012 R2, identity segment)",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "Highest" },
+        "labels": ["nessus", "on-prem", "critical", "unsupported-os", "active-directory"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Host:* onprem-ad-01.corp.local\n*OS:* Windows Server 2012 R2\n*Network Segment:* identity\n*Severity:* Critical\n*Risk Score:* 96\n*CIS Control:* 7.7\n*Compliance:* CIS Controls v8 / Nessus Audit\n*NIST CSF:* ID.AM-2, PR.IP-12\n*OWASP:* A06:2021-Vulnerable and Outdated Components\n\nh2. Issue\nUnsupported OS on Active Directory Server\n\nh2. Risk\nActive Directory servers on EOL OS carry extreme privilege escalation and domain compromise risk.\n\nh2. Recommendation\nUpgrade or replace immediately with a supported Windows Server version.\n\nh2. Remediation Steps\n# Identify business owners for unsupported assets.\n# Plan and execute upgrade or replacement to supported OS baselines.\n# Isolate legacy systems until migration is completed."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] onprem-printer-mgmt-01: Critical Patches Overdue (140 days, Windows Server 2016)",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "High" },
+        "labels": ["nessus", "on-prem", "high", "patching"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Host:* onprem-printer-mgmt-01.corp.local\n*OS:* Windows Server 2016\n*Network Segment:* operations\n*Severity:* High\n*Risk Score:* 88\n*Patch Days Overdue:* 140\n*CIS Control:* 7.3\n*Compliance:* CIS Controls v8 / Nessus Audit\n*NIST CSF:* PR.IP-12, DE.CM-8\n*OWASP:* A06:2021-Vulnerable and Outdated Components\n\nh2. Issue\nCritical Patches Overdue (140 days)\n\nh2. Risk\nDelayed patching increases exposure windows for known exploited vulnerabilities.\n\nh2. Recommendation\nApply overdue security patches within the defined remediation SLA.\n\nh2. Remediation Steps\n# Prioritize internet-exposed and privileged systems first.\n# Patch and reboot assets through approved maintenance windows.\n# Rescan to verify missing critical patches are remediated."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] onprem-ad-01: Critical Patches Overdue (121 days, Windows Server 2012 R2)",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "High" },
+        "labels": ["nessus", "on-prem", "high", "patching", "active-directory"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Host:* onprem-ad-01.corp.local\n*OS:* Windows Server 2012 R2\n*Network Segment:* identity\n*Severity:* High\n*Risk Score:* 88\n*Patch Days Overdue:* 121\n*CIS Control:* 7.3\n*Compliance:* CIS Controls v8 / Nessus Audit\n*NIST CSF:* PR.IP-12, DE.CM-8\n*OWASP:* A06:2021-Vulnerable and Outdated Components\n\nh2. Issue\nCritical Patches Overdue on Active Directory Server (121 days)\n\nh2. Risk\nDelayed patching on AD infrastructure significantly elevates domain compromise risk.\n\nh2. Recommendation\nApply overdue security patches immediately.\n\nh2. Remediation Steps\n# Prioritize AD infrastructure for patching.\n# Patch and reboot during approved maintenance windows.\n# Rescan to verify missing critical patches are remediated."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] onprem-web-01: Critical Patches Overdue (94 days, Windows Server 2016, DMZ)",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "High" },
+        "labels": ["nessus", "on-prem", "high", "patching", "dmz"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Host:* onprem-web-01.corp.local\n*OS:* Windows Server 2016\n*Network Segment:* dmz\n*Severity:* High\n*Risk Score:* 88\n*Patch Days Overdue:* 94\n*CIS Control:* 7.3\n*Compliance:* CIS Controls v8 / Nessus Audit\n*NIST CSF:* PR.IP-12, DE.CM-8\n*OWASP:* A06:2021-Vulnerable and Outdated Components\n\nh2. Issue\nCritical Patches Overdue (94 days) on Internet-facing DMZ host\n\nh2. Risk\nDelayed patching on internet-exposed hosts in the DMZ creates a high-probability exploitation path.\n\nh2. Recommendation\nApply overdue security patches within the defined remediation SLA.\n\nh2. Remediation Steps\n# Prioritize this DMZ host for immediate patching.\n# Patch and reboot during approved maintenance windows.\n# Rescan to verify missing critical patches are remediated."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] onprem-linux-bastion-01: Critical Patches Overdue (73 days, Ubuntu 20.04)",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "High" },
+        "labels": ["nessus", "on-prem", "high", "patching", "bastion", "linux"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Host:* onprem-linux-bastion-01.corp.local\n*OS:* Ubuntu 20.04\n*Network Segment:* admin\n*Severity:* High\n*Risk Score:* 88\n*Patch Days Overdue:* 73\n*CIS Control:* 7.3\n*Compliance:* CIS Controls v8 / Nessus Audit\n*NIST CSF:* PR.IP-12, DE.CM-8\n*OWASP:* A06:2021-Vulnerable and Outdated Components\n\nh2. Issue\nCritical Patches Overdue (73 days) on Linux Bastion\n\nh2. Risk\nUnpatched bastion hosts significantly increase lateral movement risk.\n\nh2. Recommendation\nApply overdue security patches within the defined remediation SLA.\n\nh2. Remediation Steps\n# Run: sudo apt update && sudo apt upgrade.\n# Reboot if kernel patches are included.\n# Rescan to verify missing critical patches are remediated."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] onprem-jump-01: Critical Patches Overdue (47 days, Windows Server 2012 R2)",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "High" },
+        "labels": ["nessus", "on-prem", "high", "patching"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Host:* onprem-jump-01.corp.local\n*OS:* Windows Server 2012 R2\n*Network Segment:* admin\n*Severity:* High\n*Risk Score:* 88\n*Patch Days Overdue:* 47\n*CIS Control:* 7.3\n*Compliance:* CIS Controls v8 / Nessus Audit\n*NIST CSF:* PR.IP-12, DE.CM-8\n*OWASP:* A06:2021-Vulnerable and Outdated Components\n\nh2. Issue\nCritical Patches Overdue (47 days) on Jump Server\n\nh2. Risk\nDelayed patching increases exposure windows for known exploited vulnerabilities.\n\nh2. Recommendation\nApply overdue security patches within the defined remediation SLA.\n\nh2. Remediation Steps\n# Prioritize internet-exposed and privileged systems first.\n# Patch and reboot assets through approved maintenance windows.\n# Rescan to verify missing critical patches are remediated."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] onprem-vdi-01: Critical Patches Overdue (34 days, Windows 10 Enterprise)",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "High" },
+        "labels": ["nessus", "on-prem", "high", "patching", "vdi"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Host:* onprem-vdi-01.corp.local\n*OS:* Windows 10 Enterprise\n*Network Segment:* user-access\n*Severity:* High\n*Risk Score:* 88\n*Patch Days Overdue:* 34\n*CIS Control:* 7.3\n*Compliance:* CIS Controls v8 / Nessus Audit\n*NIST CSF:* PR.IP-12, DE.CM-8\n*OWASP:* A06:2021-Vulnerable and Outdated Components\n\nh2. Issue\nCritical Patches Overdue (34 days) on VDI Host\n\nh2. Risk\nDelayed patching increases exposure windows for known exploited vulnerabilities.\n\nh2. Recommendation\nApply overdue security patches within the defined remediation SLA.\n\nh2. Remediation Steps\n# Prioritize internet-exposed and privileged systems first.\n# Patch and reboot assets through approved maintenance windows.\n# Rescan to verify missing critical patches are remediated."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] onprem-files-01: Critical Patches Overdue (38 days, Windows Server 2019)",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "High" },
+        "labels": ["nessus", "on-prem", "high", "patching"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Host:* onprem-files-01.corp.local\n*OS:* Windows Server 2019\n*Network Segment:* datacenter\n*Severity:* High\n*Risk Score:* 88\n*Patch Days Overdue:* 38\n*CIS Control:* 7.3\n*Compliance:* CIS Controls v8 / Nessus Audit\n*NIST CSF:* PR.IP-12, DE.CM-8\n*OWASP:* A06:2021-Vulnerable and Outdated Components\n\nh2. Issue\nCritical Patches Overdue (38 days) on File Server\n\nh2. Risk\nDelayed patching increases exposure windows for known exploited vulnerabilities.\n\nh2. Recommendation\nApply overdue security patches within the defined remediation SLA.\n\nh2. Remediation Steps\n# Prioritize internet-exposed and privileged systems first.\n# Patch and reboot assets through approved maintenance windows.\n# Rescan to verify missing critical patches are remediated."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] Multiple Hosts: RDP NLA Disabled — onprem-web-01, onprem-jump-01, onprem-vdi-01, onprem-printer-mgmt-01",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "High" },
+        "labels": ["nessus", "on-prem", "high", "rdp", "nla", "authentication"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Affected Hosts:*\n- onprem-web-01.corp.local (Windows Server 2016, dmz)\n- onprem-jump-01.corp.local (Windows Server 2012 R2, admin)\n- onprem-vdi-01.corp.local (Windows 10 Enterprise, user-access)\n- onprem-printer-mgmt-01.corp.local (Windows Server 2016, operations)\n*Severity:* High\n*Risk Score:* 86\n*CIS Control:* 6.3\n*Compliance:* CIS Controls v8 / Nessus Audit\n*NIST CSF:* PR.AC-7, PR.PT-4\n*OWASP:* A07:2021-Identification and Authentication Failures\n\nh2. Issue\nRDP Network Level Authentication Disabled on Multiple Hosts\n\nh2. Risk\nRDP endpoints without NLA are more susceptible to credential theft and brute-force attacks.\n\nh2. Recommendation\nRequire Network Level Authentication (NLA) for all RDP endpoints.\n\nh2. Remediation Steps\n# Enable NLA in Windows remote access settings or via Group Policy.\n# Restrict RDP access paths to approved management networks.\n# Retest remote logon behavior after hardening."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] Multiple Hosts: SMB Signing Not Enforced — web-01, jump-01, ad-01, files-01, printer-mgmt-01",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "High" },
+        "labels": ["nessus", "on-prem", "high", "smb", "signing", "relay-attack"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Affected Hosts:*\n- onprem-web-01.corp.local (Windows Server 2016, dmz)\n- onprem-jump-01.corp.local (Windows Server 2012 R2, admin)\n- onprem-ad-01.corp.local (Windows Server 2012 R2, identity)\n- onprem-files-01.corp.local (Windows Server 2019, datacenter)\n- onprem-printer-mgmt-01.corp.local (Windows Server 2016, operations)\n*Severity:* High\n*Risk Score:* 84\n*CIS Control:* 4.8\n*Compliance:* CIS Controls v8 / Nessus Audit\n*NIST CSF:* PR.AC-5, PR.PT-3\n*OWASP:* A05:2021-Security Misconfiguration\n\nh2. Issue\nSMB Signing Not Enforced on 5 Hosts\n\nh2. Risk\nSMB relay attacks become more feasible when SMB signing is disabled.\n\nh2. Recommendation\nEnforce SMB signing on all on-prem Windows servers.\n\nh2. Remediation Steps\n# Apply Group Policy to require SMB signing for clients and servers.\n# Validate policy application on critical hosts.\n# Rescan to confirm SMB relay exposure is removed."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] Multiple Hosts: Local Admin Password Rotation Missing — web-01, jump-01, ad-01, bastion-01, printer-mgmt-01",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "High" },
+        "labels": ["nessus", "on-prem", "high", "laps", "admin-password", "lateral-movement"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Affected Hosts:*\n- onprem-web-01.corp.local (Windows Server 2016, dmz)\n- onprem-jump-01.corp.local (Windows Server 2012 R2, admin)\n- onprem-ad-01.corp.local (Windows Server 2012 R2, identity)\n- onprem-linux-bastion-01.corp.local (Ubuntu 20.04, admin)\n- onprem-printer-mgmt-01.corp.local (Windows Server 2016, operations)\n*Severity:* High\n*Risk Score:* 83\n*CIS Control:* 5.4\n*Compliance:* CIS Controls v8 / Nessus Audit\n*NIST CSF:* PR.AC-1, PR.AC-6\n*OWASP:* A07:2021-Identification and Authentication Failures\n\nh2. Issue\nLocal Admin Password Rotation Missing on 5 Hosts\n\nh2. Risk\nStatic local admin credentials can be reused laterally after compromise.\n\nh2. Recommendation\nImplement local administrator password rotation (e.g., Microsoft LAPS).\n\nh2. Remediation Steps\n# Deploy LAPS (or equivalent) for local administrator credential rotation.\n# Require unique host-level local admin passwords.\n# Audit privileged local account usage and stale accounts."
+      }
+    },
+
+    {
+      "fields": {
+        "project": { "key": "SEC" },
+        "summary": "[Nessus] onprem-web-01: RDP NLA Disabled (Windows Server 2016, DMZ)",
+        "issuetype": { "name": "Bug" },
+        "priority": { "name": "High" },
+        "labels": ["nessus", "on-prem", "high", "rdp", "nla", "dmz"],
+        "description": "h2. Finding Details\n*Source:* Nessus On-Prem Scanner\n*Host:* onprem-web-01.corp.local\n*OS:* Windows Server 2016\n*Network Segment:* dmz\n*Severity:* High\n*Risk Score:* 86\n*CIS Control:* 6.3\n\nh2. Issue\nRDP Network Level Authentication Disabled\n\nh2. Risk\nRDP endpoints without NLA are more susceptible to credential theft and brute-force attacks, especially in the DMZ.\n\nh2. Remediation Steps\n# Enable NLA in Windows remote access settings or via Group Policy.\n# Restrict RDP access paths to approved management networks.\n# Retest remote logon behavior after hardening."
+      }
+    }
+
+  ]
+}
